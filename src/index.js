@@ -3,7 +3,11 @@ const admin = require("firebase-admin");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+//cors enabled
+const cors = require('cors');
 
+// Enable CORS for all routes
+router.use(cors());
 // Firebase config
 //const serviceAccount = require("./admin.json");
 const serviceAccount={
