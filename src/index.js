@@ -28,17 +28,17 @@ admin.initializeApp({
 });
 
 // // Firebase database reference
-// const db = admin.database();
-// const userRef = db.ref("users");
+const db = admin.database();
+const userRef = db.ref("users");
 
-// Add a new user
-// const addUser = (obj, res) => {
-//   const oneUser = userRef.child(obj.roll);
-//   oneUser
-//     .set(obj)
-//     .then(() => res.status(200).json({ msg: "User created successfully" }))
-//     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
-// };
+//Add a new user
+const addUser = (obj, res) => {
+  const oneUser = userRef.child(obj.roll);
+  oneUser
+    .set(obj)
+    .then(() => res.status(200).json({ msg: "User created successfully" }))
+    .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
+};
 
 // // Add a demo user
 // const demoUser = (obj, res) => {
