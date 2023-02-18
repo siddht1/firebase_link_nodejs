@@ -72,7 +72,8 @@ const addUser = (obj, res) => {
 
 // Routes
 app.get("/", (req, res) => {
-res.send(serviceAccount);
+  let data={'type':'github_vercel_app','roll':51};
+res.send(addUser(data,res));
 });
 
 app.get("/users", (req, res) => {
