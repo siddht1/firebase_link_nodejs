@@ -44,39 +44,39 @@ const addUser = (obj, res) => {
     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
 };
 
-// // Add a demo user
-// const demoUser = (obj, res) => {
-//   if (!res) {
-//     return console.error("Response object is undefined.");
-//   }
+// Add a demo user
+const demoUser = (obj, res) => {
+  if (!res) {
+    return console.error("Response object is undefined.");
+  }
 
-//   const userRefdemo = db.ref("demousers");
-//   const oneUser = userRefdemo.child(obj.roll);
-//   oneUser
-//     .push(obj)
-//     .then(() => res.status(200).json({ msg: "User created successfully" }))
-//     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
-// };
+  const userRefdemo = db.ref("demousers");
+  const oneUser = userRefdemo.child(obj.roll);
+  oneUser
+    .push(obj)
+    .then(() => res.status(200).json({ msg: "User created successfully" }))
+    .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
+};
 
-// // Get all users
-// const getUsers = (res) => {
-//   userRef.once("value", (snap) => {
-//     res.status(200).json({ users: snap.val() });
-//   });
-// };
+// Get all users
+const getUsers = (res) => {
+  userRef.once("value", (snap) => {
+    res.status(200).json({ users: snap.val() });
+  });
+};
 
-// // Get a single user
-// const getOneUser = (obj, res) => {
-//   const userRefdemo = db.ref("users");
-//   const oneUser = userRefdemo.child(obj.roll);
-//   oneUser.once("value", (snap) => {
-//     res.status(200).json({ user: snap.val() });
-//   });
-// };
+// Get a single user
+const getOneUser = (obj, res) => {
+  const userRefdemo = db.ref("users");
+  const oneUser = userRefdemo.child(obj.roll);
+  oneUser.once("value", (snap) => {
+    res.status(200).json({ user: snap.val() });
+  });
+};
 
 // Routes
 app.get("/", (req, res) => {
-  let data={'type':'github_vercel_app','roll':51};
+  let data={'type':'github_vercel_app','roll':53};
   addUser(data,res);
  // res.send(serviceAccount);
 });
