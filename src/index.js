@@ -21,11 +21,11 @@ const serviceAccount={
   "authDomain": process.env.FIREBASE_AUTH_DOMAIN
   
 };
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
 //   databaseURL:  process.env.FIREBASE_DATABASE_URL,
 //   authDomain: process.env.FIREBASE_AUTH_DOMAIN
-// });
+});
 
 // // Firebase database reference
 // const db = admin.database();
