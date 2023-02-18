@@ -18,66 +18,58 @@ const serviceAccount={
   "auth_provider_x509_cert_url": process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
   "client_x509_cert_url": process.env.FIREBASE_CLIENT_X509_CERT_URL
 };
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL:  process.env.FIREBASE_DATABASE_URL,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL:  process.env.FIREBASE_DATABASE_URL,
+//   authDomain: process.env.FIREBASE_AUTH_DOMAIN
+// });
 
-// Firebase database reference
-const db = admin.database();
-const userRef = db.ref("users");
+// // Firebase database reference
+// const db = admin.database();
+// const userRef = db.ref("users");
 
 // Add a new user
-const addUser = (obj, res) => {
-  const oneUser = userRef.child(obj.roll);
-  oneUser
-    .set(obj)
-    .then(() => res.status(200).json({ msg: "User created successfully" }))
-    .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
-};
+// const addUser = (obj, res) => {
+//   const oneUser = userRef.child(obj.roll);
+//   oneUser
+//     .set(obj)
+//     .then(() => res.status(200).json({ msg: "User created successfully" }))
+//     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
+// };
 
-// Add a demo user
-const demoUser = (obj, res) => {
-  if (!res) {
-    return console.error("Response object is undefined.");
-  }
+// // Add a demo user
+// const demoUser = (obj, res) => {
+//   if (!res) {
+//     return console.error("Response object is undefined.");
+//   }
 
-  const userRefdemo = db.ref("demousers");
-  const oneUser = userRefdemo.child(obj.roll);
-  oneUser
-    .push(obj)
-    .then(() => res.status(200).json({ msg: "User created successfully" }))
-    .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
-};
+//   const userRefdemo = db.ref("demousers");
+//   const oneUser = userRefdemo.child(obj.roll);
+//   oneUser
+//     .push(obj)
+//     .then(() => res.status(200).json({ msg: "User created successfully" }))
+//     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
+// };
 
-// Get all users
-const getUsers = (res) => {
-  userRef.once("value", (snap) => {
-    res.status(200).json({ users: snap.val() });
-  });
-};
+// // Get all users
+// const getUsers = (res) => {
+//   userRef.once("value", (snap) => {
+//     res.status(200).json({ users: snap.val() });
+//   });
+// };
 
-// Get a single user
-const getOneUser = (obj, res) => {
-  const userRefdemo = db.ref("users");
-  const oneUser = userRefdemo.child(obj.roll);
-  oneUser.once("value", (snap) => {
-    res.status(200).json({ user: snap.val() });
-  });
-};
+// // Get a single user
+// const getOneUser = (obj, res) => {
+//   const userRefdemo = db.ref("users");
+//   const oneUser = userRefdemo.child(obj.roll);
+//   oneUser.once("value", (snap) => {
+//     res.status(200).json({ user: snap.val() });
+//   });
+// };
 
 // Routes
 app.get("/", (req, res) => {
-  //const data = { name: "JDFJVDJV", roll: 15 };
-  //data modded to
-   var datetime = new Date();
-  let data={}
-    data['roll']=19;
-    data['dt']={};
-    data['app']='vercel_app_19_50';
-  
-  addUser(data, res);
+res.send(serviceAccount);
 });
 
 app.get("/users", (req, res) => {
