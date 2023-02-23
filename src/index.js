@@ -95,10 +95,10 @@ app.get("/", (req, res) => {
     data['ip'] = req.ip;
   data['user_agent'] = req.get('user-agent');
   data['server_id'] = os.hostname();
-  data['GET']=req.query;
-  data['POST']=req.body;
+//   data['GET']=req.query;
+//   data['POST']=req.body;
   add_data(data,res);
- // res.send(serviceAccount);
+ res.send(req.body);
 });
 
 // POST route
