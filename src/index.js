@@ -83,26 +83,27 @@ const get_One_data = (obj, res) => {
     res.status(200).json({ data: snap.val() });
   });
 };
-
 // Routes
 app.get("/", (req, res) => {
+  console.log("GET request received");
   var datetime = new Date();
   let data={};
   data['app']='github_vercel_app';
   data['type']='GET';
   data['id']=uuidv4();
   data['dt']=datetime.toISOString();
-    data['ip'] = req.ip;
+  data['ip'] = req.ip;
   data['user_agent'] = req.get('user-agent');
   data['server_id'] = os.hostname();
-//   data['GET']=req.query;
-//   data['POST']=req.body;
+  //   data['GET']=req.query;
+  //   data['POST']=req.body;
   add_data(data,res);
- res.send(req.body);
+  res.send(req.body);
 });
 
 // POST route
 app.post('/', (req, res) => {
+  console.log("POST request received");
   const { name } = req.body;
   res.send(`Hello ${name}! This is a POST request`);
 });
