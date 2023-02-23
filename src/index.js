@@ -42,7 +42,7 @@ const add_data = (obj, res) => {
   const one_data = data_Ref.child(obj.id);
   one_data
     .set(obj)
-    .then(() => res.status(200).json({ msg: "DATA created successfully" }))
+    .then(() => res.status(200).json({ msg: "DATA created successfully" ,data:obj}))
     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
 };
 
