@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 //cors enabled
 const cors = require('cors');
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors({origin: '*'}));
 // Middleware to parse JSON data and extend data limit to 50 MB
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -18,12 +18,6 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-
-//extra cors
-res.setHeader('Access-Control-Allow-Origin', '*');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-res.setHeader('Access-Control-Allow-Credentials', true);
 
 // Firebase config
 //const serviceAccount = require("./admin.json");
@@ -96,7 +90,10 @@ app.get("/", (req, res) => {
 res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 res.setHeader('Access-Control-Allow-Credentials', true);
-
+ res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   console.log("GET request received");
   var datetime = new Date();
   let data={};
