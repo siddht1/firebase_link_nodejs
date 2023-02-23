@@ -78,8 +78,8 @@ const get_One_data = (obj, res) => {
 app.get("/", (req, res) => {
   var datetime = new Date();
   let data={};
-  data['type']:'github_vercel_app';
-  data['id']:uuidv4();
+  data['type']='github_vercel_app';
+  data['id']=uuidv4();
   data['dt']=datetime.toISOString();
   add_data(data,res);
  // res.send(serviceAccount);
