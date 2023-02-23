@@ -64,6 +64,12 @@ const get_data = (res) => {
     res.status(200).json({ data: snap.val() });
   });
 };
+// Get all users
+const get_Users = (res) => {
+  userRef.once("value", (snap) => {
+    res.status(200).json({ users: snap.val() });
+  });
+};
 
 // Get a single data
 const get_One_data = (obj, res) => {
@@ -86,7 +92,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/data", (req, res) => {
-  get_data(res);
+  get_Users(res);
 });
 
 app.get("/data/:id", (req, res) => {
