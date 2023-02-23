@@ -33,7 +33,7 @@ admin.initializeApp({
 // Firebase database initialization
 const db = admin.database();
 //changed to mode data
-const data_Ref = db.ref("users");
+const data_Ref = db.ref("data");
 
 //Add a new data
 const add_data = (obj, res) => {
@@ -92,7 +92,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/data", (req, res) => {
-  get_Users(res);
+  get_data(res);
 });
 
 app.get("/data/:id", (req, res) => {
