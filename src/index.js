@@ -18,6 +18,12 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Enable CORS for all routes
 app.use(cors());
+//extra cors
+res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+
 // Firebase config
 //const serviceAccount = require("./admin.json");
 // change to env 
@@ -85,6 +91,11 @@ const get_One_data = (obj, res) => {
 };
 // Routes
 app.get("/", (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+
   console.log("GET request received");
   var datetime = new Date();
   let data={};
@@ -103,6 +114,11 @@ app.get("/", (req, res) => {
 
 // POST route
 app.post('/', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+
   console.log("POST request received");
   const { name } = req.body;
   res.send(`Hello ${name}! This is a POST request`);
