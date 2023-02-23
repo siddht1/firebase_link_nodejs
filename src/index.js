@@ -60,16 +60,11 @@ const demo_data = (obj, res) => {
 
 // Get all data
 const get_data = (res) => {
-  userRef.once("value", (snap) => {
+  data_Ref.once("value", (snap) => {
     res.status(200).json({ data: snap.val() });
   });
 };
-// Get all users
-const get_Users = (res) => {
-  userRef.once("value", (snap) => {
-    res.status(200).json({ users: snap.val() });
-  });
-};
+
 
 // Get a single data
 const get_One_data = (obj, res) => {
