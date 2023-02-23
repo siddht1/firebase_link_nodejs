@@ -8,7 +8,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 //cors enabled
 const cors = require('cors');
-
+// Middleware to parse JSON data
+app.use(express.json());
 // Enable CORS for all routes
 app.use(cors());
 // Firebase config
@@ -81,7 +82,8 @@ const get_One_data = (obj, res) => {
 app.get("/", (req, res) => {
   var datetime = new Date();
   let data={};
-  data['type']='github_vercel_app';
+  data['app']='github_vercel_app';
+  data['type']='GET';
   data['id']=uuidv4();
   data['dt']=datetime.toISOString();
     data['ip'] = req.ip;
@@ -91,8 +93,10 @@ app.get("/", (req, res) => {
  // res.send(serviceAccount);
 });
 
-app.get("/data", (req, res) => {
-  get_data(res);
+// POST route
+app.post('/', (req, res) => {
+  const { name } = req.body;
+  res.send(`Hello ${name}! This is a POST request`);
 });
 
 app.get("/data/:id", (req, res) => {
