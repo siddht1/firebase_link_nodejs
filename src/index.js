@@ -40,7 +40,7 @@ const add_data = (obj, res) => {
   const one_data = data_Ref.child(obj.id);
   one_data
     .set(obj)
-    .then(() => res.status(200).json({ msg: "User created successfully" }))
+    .then(() => res.status(200).json({ msg: "DATA created successfully" }))
     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
 };
 
@@ -54,7 +54,7 @@ const demo_data = (obj, res) => {
   const one_data = data_Ref_demo.child(obj.id);
   one_data
     .push(obj)
-    .then(() => res.status(200).json({ msg: "User created successfully" }))
+    .then(() => res.status(200).json({ msg: "DATA created successfully" }))
     .catch((err) => res.status(300).json({ msg: "Something went wrong", error: err }));
 };
 
@@ -65,7 +65,7 @@ const get_data = (res) => {
   });
 };
 
-// Get a single user
+// Get a single data
 const get_One_data = (obj, res) => {
   const data_Ref_demo = db.ref("data");
   const one_data = data_Ref_demo.child(obj.id);
