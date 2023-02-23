@@ -70,7 +70,7 @@ const get_data = (res) => {
 const get_One_data = (obj, res) => {
   const data_Ref_demo = db.ref("data");
   const one_data = data_Ref_demo.child(obj.id);
-  oneUser.once("value", (snap) => {
+  one_data.once("value", (snap) => {
     res.status(200).json({ data: snap.val() });
   });
 };
