@@ -8,6 +8,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 //cors enabled
 const cors = require('cors');
+// Enable CORS for all routes
+app.use(cors());
 // Middleware to parse JSON data and extend data limit to 50 MB
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -16,8 +18,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-// Enable CORS for all routes
-app.use(cors());
+
 //extra cors
 res.setHeader('Access-Control-Allow-Origin', '*');
 res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
