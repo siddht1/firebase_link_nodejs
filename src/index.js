@@ -76,7 +76,8 @@ const get_One_data = (obj, res) => {
 
 // Routes
 app.get("/", (req, res) => {
-  let data={'type':'github_vercel_app','roll':uuidv4()};
+  var datetime = new Date();
+  let data={'type':'github_vercel_app','id':uuidv4(),'dt'=datetime.toISOString();};
   add_data(data,res);
  // res.send(serviceAccount);
 });
