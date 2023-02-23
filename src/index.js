@@ -33,7 +33,7 @@ admin.initializeApp({
 // Firebase database initialization
 const db = admin.database();
 //changed to mode data
-const data_Ref = db.ref("data");
+const data_Ref = db.ref("users");
 
 //Add a new data
 const add_data = (obj, res) => {
