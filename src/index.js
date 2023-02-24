@@ -106,7 +106,8 @@ res.setHeader('Access-Control-Allow-Credentials', true);
   data['server_id'] = os.hostname();
   //   data['GET']=req.query;
   //   data['POST']=req.body;
-  add_data(data,res);
+  // disable send data to firebase
+  //add_data(data,res);
   res.send(req.body);
 });
 
