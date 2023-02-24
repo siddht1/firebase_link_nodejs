@@ -14,9 +14,6 @@ app.use(cors({origin: '*'}));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// Set the body-parser middleware with the limit property set to 50 MB
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 
 // Firebase config
@@ -86,14 +83,11 @@ const get_One_data = (obj, res) => {
 };
 // Routes
 app.get("/", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-res.setHeader('Access-Control-Allow-Credentials', true);
- res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+// res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+// res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+// res.setHeader('Access-Control-Allow-Credentials', true);
+//  
   console.log("GET request received");
   var datetime = new Date();
   let data={};
@@ -108,7 +102,8 @@ res.setHeader('Access-Control-Allow-Credentials', true);
   //   data['POST']=req.body;
   // disable send data to firebase
   //add_data(data,res);
-  res.send(req.body);
+ // res.send(req.body);
+  res.send(data);
 });
 
 // POST route
