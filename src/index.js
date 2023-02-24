@@ -101,7 +101,7 @@ app.get("/", (req, res) => {
     data['GET']=req.query;
   //   data['POST']=req.body;
   // disable send data to firebase
-  //add_data(data,res);
+  add_data(data,res);
  // res.send(req.body);
   res.send(data);
 });
