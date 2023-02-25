@@ -98,7 +98,8 @@ app.get("/", (req, res) => {
   data['ip'] = req.ip;
   data['user_agent'] = req.get('user-agent');
   data['server_id'] = os.hostname();
-    data['GET']=req.query;
+  //checking is data without get working or not 
+   // data['GET']=req.query;
   //   data['POST']=req.body;
   // disable send data to firebase
   add_data(data,res);
