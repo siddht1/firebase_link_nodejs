@@ -95,12 +95,12 @@ app.get("/", (req, res) => {
   data['user_agent'] = req.get('user-agent');
   data['server_id'] = os.hostname();
   //checking is data without get working or not 
-   // data['GET']=req.query;
+   data['GET']=req.query;
   //   data['POST']=req.body;
   // disable send data to firebase
   add_data(data,res);
  // res.send(req.body);
-  res.send(data);
+  //res.send(data);
 });
 
 // POST route
