@@ -82,7 +82,11 @@ const get_One_data = (obj, res) => {
   });
 };
 // Routes
-//declaring global data
+
+app.get("/", (req, res) => {
+
+  console.log("GET request received");
+
   var datetime = new Date();
   let data={};
   data['app']='github_vercel_app';
@@ -92,18 +96,13 @@ const get_One_data = (obj, res) => {
   data['ip'] = req.ip;
   data['user_agent'] = req.get('user-agent');
   data['server_id'] = os.hostname();
-app.get("/", (req, res) => {
-
-  console.log("GET request received");
-
   //checking is data without get working or not 
    data['type']='GET';
    data['GET']=req.query;
   //   data['POST']=req.body;
   // disable send data to firebase
   add_data(data,res);
- // res.send(req.body);
-  //res.send(data);
+
 });
 
 // POST route
