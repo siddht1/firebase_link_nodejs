@@ -108,12 +108,14 @@ app.get("/", (req, res) => {
 app.post('/', (req, res) => {
 
   console.log("POST request received");
- // console.log(req);
- // console.log(res);
- let   post_data  = req.body;
-  res.send(post_data,res);
- add_data(post_data,res);
+  const { post_data } = req.body;
+  const data = {
+    id: uuidv4(),
+    post_data: post_data
+  };
+  add_data(data, res);
 });
+
 
 app.get("/data/:id", (req, res) => {
   const id = req.params.id;
