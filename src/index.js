@@ -85,8 +85,8 @@ const get_One_data = (obj, res) => {
 app.get("/", (req, res) => {
 
   console.log("GET request received");
-  console.log(req);
-  console.log(res);
+  //console.log(req);
+ // console.log(res);
   var datetime = new Date();
   let data={};
   data['app']='github_vercel_app';
@@ -108,8 +108,8 @@ app.get("/", (req, res) => {
 app.post('/', (req, res) => {
 
   console.log("POST request received");
-  console.log(req);
-  console.log(res);
+ // console.log(req);
+ // console.log(res);
  let   post_data  = req.body;
   res.send(post_data,res);
  add_data(post_data,res);
