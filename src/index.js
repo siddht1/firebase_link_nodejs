@@ -109,12 +109,18 @@ app.post('/', (req, res) => {
 
   console.log("POST request received");
   const { post_data } = req.body;
+  
+  if (!post_data) {
+    return res.status(400).send('post_data field is required');
+  }
+
   const data = {
     id: uuidv4(),
     post_data: post_data
   };
   add_data(data, res);
 });
+
 
 
 app.get("/data/:id", (req, res) => {
