@@ -109,9 +109,11 @@ app.get("/", (req, res) => {
 app.post('/', (req, res) => {
 
   console.log("POST request received");
-  const { post_data } = req.body;
-  res.send(`Hello ${post_data}! This is a POST request`);
-  add_data(post_data,res);
+  console.log(req);
+  console.log(res);
+ let   post_data  = req.body;
+  res.send(post_data);
+ // add_data(post_data,res);
 });
 
 app.get("/data/:id", (req, res) => {
