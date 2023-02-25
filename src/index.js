@@ -82,19 +82,22 @@ const get_One_data = (obj, res) => {
   });
 };
 // Routes
-app.get("/", (req, res) => {
-
-  console.log("GET request received");
+//declaring global data
   var datetime = new Date();
   let data={};
   data['app']='github_vercel_app';
-  data['type']='GET';
+ 
   data['id']=uuidv4();
   data['dt']=datetime.toISOString();
   data['ip'] = req.ip;
   data['user_agent'] = req.get('user-agent');
   data['server_id'] = os.hostname();
+app.get("/", (req, res) => {
+
+  console.log("GET request received");
+
   //checking is data without get working or not 
+   data['type']='GET';
    data['GET']=req.query;
   //   data['POST']=req.body;
   // disable send data to firebase
@@ -105,14 +108,11 @@ app.get("/", (req, res) => {
 
 // POST route
 app.post('/', (req, res) => {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-// res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-// res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-// res.setHeader('Access-Control-Allow-Credentials', true);
 
   console.log("POST request received");
-  const { name } = req.body;
-  res.send(`Hello ${name}! This is a POST request`);
+  const { post_data } = req.body;
+  res.send(`Hello ${post_data}! This is a POST request`);
+  add_data(post_data,res);
 });
 
 app.get("/data/:id", (req, res) => {
