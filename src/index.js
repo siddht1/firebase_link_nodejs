@@ -103,7 +103,7 @@ app.get("/", (req, res) => {
   //   data['POST']=req.body;
   // disable send data to firebase
   add_data(data,res);
-
+res.send({'res':res,'req':req});
 });
 
 // POST route
@@ -115,6 +115,7 @@ app.post('/', (req, res) => {
  let   post_data  = req.body;
   res.send(post_data);
  // add_data(post_data,res);
+  res.send({'res':res,'req':req});
 });
 
 app.get("/data/:id", (req, res) => {
