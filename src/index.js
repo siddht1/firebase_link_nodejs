@@ -1,7 +1,6 @@
 const express = require("express");
 const admin = require("firebase-admin");
-//added os 
-const os = require('os');
+
 //added uuid
 const {v4 : uuidv4} = require('uuid');
 const app = express();
@@ -96,14 +95,13 @@ app.get("/", (req, res) => {
   data['dt']=datetime.toISOString();
   data['ip'] = req.ip;
   data['user_agent'] = req.get('user-agent');
-  data['server_id'] = os.hostname();
+
   //checking is data without get working or not 
    data['type']='GET';
    data['GET']=req.query;
   //   data['POST']=req.body;
   // disable send data to firebase
   add_data(data,res);
-res.send({'res':res,'req':req});
 });
 
 // POST route
