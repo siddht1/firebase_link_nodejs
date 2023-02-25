@@ -86,7 +86,8 @@ const get_One_data = (obj, res) => {
 app.get("/", (req, res) => {
 
   console.log("GET request received");
-
+  console.log(req);
+  console.log(res);
   var datetime = new Date();
   let data={};
   data['app']='github_vercel_app';
