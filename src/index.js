@@ -111,9 +111,8 @@ app.post('/', (req, res) => {
   console.log(req);
   console.log(res);
  let   post_data  = req.body;
-  res.send(post_data);
- // add_data(post_data,res);
-  res.send({'res':res,'req':req});
+  res.send(post_data,res);
+ add_data(post_data,res);
 });
 
 app.get("/data/:id", (req, res) => {
