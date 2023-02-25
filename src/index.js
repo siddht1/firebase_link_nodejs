@@ -104,16 +104,16 @@ app.get("/", (req, res) => {
 });
 
 // POST route
-// app.post('/', (req, res) => {
+app.post('/', (req, res) => {
 //   res.setHeader('Access-Control-Allow-Origin', '*');
 // res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 // res.setHeader('Access-Control-Allow-Credentials', true);
 
-//   console.log("POST request received");
-//   const { name } = req.body;
-//   res.send(`Hello ${name}! This is a POST request`);
-// });
+  console.log("POST request received");
+  const { name } = req.body;
+  res.send(`Hello ${name}! This is a POST request`);
+});
 
 app.get("/data/:id", (req, res) => {
   const id = req.params.id;
